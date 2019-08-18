@@ -6,7 +6,6 @@ pipeline {
                     sh './test.sh'
                 }
             }
-        }
         stage('Sanity check') {
                     steps {
                         input "Todo ok para seguir?"
@@ -17,4 +16,5 @@ pipeline {
                                 sh 'mvn test'
                             }
                         }
+        }
 }
