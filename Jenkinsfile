@@ -6,6 +6,11 @@ pipeline {
                     sh './test.sh'
                 }
             }
+            stage('version sdk gcp') {
+                steps {
+                    sh 'gcloud version'
+                }
+            }
         stage('Sanity check') {
                     steps {
                         input "Todo ok para seguir?"
