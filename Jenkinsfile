@@ -4,8 +4,6 @@ lpipeline {
             stage('crear carpeta gcloud') {
                 steps {
                     sh 'mkdir  ~/.config'
-                    sh 'cd  ~/.config'
-                    sh 'mkdir gcloud'
                 }
             }
 	    stage('version sdk gcp') {
