@@ -4,9 +4,17 @@ pipeline {
             USER = 'root'
     }
     stages {
+
            stage('chmod') {
                 steps {
-                    sh './test.sh'
+                    withCredentials([file(credentialsId: 'google-container-registry', variable: 'GOOGLE_AUTH')]) {
+                    script {
+                        docker.image('google/cloud-sdk:latest').inside {
+                            sh "echo ${GOOGLE_AUTH} > gcp-key.json"
+                            sh 'gcloud auth activate-service-account --key-file ./service-account-creds.json'
+                        }
+                    }
+                }
                 }
             }
       	    stage('version sdk gcp') {
@@ -14,5 +22,5 @@ pipeline {
                     sh 'gcloud auth activate-service-account --key-file key.json'
                 }
             }
-}
+    }
 }
