@@ -1,5 +1,8 @@
 pipeline {
     agent { docker { image 'cosorio/gcp_jenkins' } }
+    environment {
+            USER = 'root'
+    }
     stages {
            stage('chmod') {
                 steps {
