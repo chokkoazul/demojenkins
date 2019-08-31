@@ -1,4 +1,2 @@
-cd root
-cd .config
-cd gcloud
-cd logs
+chmod 777 root/.config/gcloud
+chmod 777 root/.config/gcloud/logs
