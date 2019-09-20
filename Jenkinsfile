@@ -1,9 +1,9 @@
 pipeline {
-    agent { docker { image 'maven:3.3.3' } }
+    agent { docker { image 'google/cloud-sdk' } }
     stages {
-        stage('version maven') {
+        stage('autenticacion gcp') {
             steps {
-                sh 'mvn --version'
+                sh 'gcloud auth activate-service-account --key-file key.json'
             }
         }
     }
