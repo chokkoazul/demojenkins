@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('autenticacion gcp') {
             steps {
-                sh 'sudo gcloud auth activate-service-account --key-file key.json'
+                sh 'gcloud auth activate-service-account --key-file key.json'
             }
         }
     }
